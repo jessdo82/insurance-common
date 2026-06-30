@@ -155,23 +155,44 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
     <div id="day-list"></div>
 
     <div style="margin-top:18px;">
-      <div class="plan-sub" style="margin-bottom:8px;">⚡ 快速練習（隨時可用）</div>
+      <div class="plan-sub" style="margin-bottom:8px;">🎯 模擬考（照實際考試格式）</div>
+      <div onclick="startExamSim('實務')" class="quick-card">
+        <div class="quick-icon" style="background:rgba(240,124,58,.15);color:var(--orange);font-size:11px;">實務</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;">保險實務 模擬考</div>
+          <div style="font-size:11px;color:var(--sub);">50題×2分=100分・及格≥60分（答對≥30題）</div>
+        </div>
+      </div>
+      <div onclick="startExamSim('法規')" class="quick-card">
+        <div class="quick-icon" style="background:rgba(155,89,224,.15);color:var(--purple);font-size:11px;">法規</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;">保險法規 模擬考</div>
+          <div style="font-size:11px;color:var(--sub);">100題×1分=100分・及格≥60・兩科合計≥140</div>
+        </div>
+      </div>
+      <div onclick="startExamSim('共同')" class="quick-card">
+        <div class="quick-icon" style="background:rgba(91,141,238,.15);color:var(--blue);font-size:11px;">共同</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;">共同科目 模擬考</div>
+          <div style="font-size:11px;color:var(--sub);">100題×1分=100分・及格≥70・金融＋職業道德</div>
+        </div>
+      </div>
+
+      <div class="plan-sub" style="margin-bottom:8px;margin-top:14px;">📚 順序讀題</div>
       <div onclick="quickStart('人身保險','seq',0)" class="quick-card">
-        <div class="quick-icon" style="background:rgba(240,124,58,.15);color:var(--orange);">順</div>
-        <div><div style="font-size:13px;font-weight:600;">人身保險 順序做完全部</div><div style="font-size:11px;color:var(--sub);">419 題・從第1題開始讀</div></div>
+        <div class="quick-icon" style="background:rgba(240,124,58,.1);color:var(--orange);">順</div>
+        <div><div style="font-size:13px;font-weight:600;">人身保險業務員 全部順序</div><div style="font-size:11px;color:var(--sub);">419 題・第1題開始照順序讀完</div></div>
       </div>
-      <div onclick="quickStart('人身保險','random',100)" class="quick-card">
-        <div class="quick-icon" style="background:rgba(240,124,58,.1);color:var(--orange);">隨</div>
-        <div><div style="font-size:13px;font-weight:600;">人身保險 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">419 題池・隨機抽</div></div>
+      <div onclick="quickStart('職業道德','seq',0)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(155,89,224,.1);color:var(--purple);">順</div>
+        <div><div style="font-size:13px;font-weight:600;">職業道德 全部順序</div><div style="font-size:11px;color:var(--sub);">616 題・照順序</div></div>
       </div>
-      <div onclick="quickStart('職業道德','random',100)" class="quick-card">
-        <div class="quick-icon" style="background:rgba(155,89,224,.15);color:var(--purple);">職</div>
-        <div><div style="font-size:13px;font-weight:600;">職業道德 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">616 題池・選(4)捷徑</div></div>
+      <div onclick="quickStart('金融市場常識','seq',0)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(91,141,238,.1);color:var(--blue);">順</div>
+        <div><div style="font-size:13px;font-weight:600;">金融市場常識 全部順序</div><div style="font-size:11px;color:var(--sub);">504 題・照順序</div></div>
       </div>
-      <div onclick="quickStart('金融市場常識','random',100)" class="quick-card">
-        <div class="quick-icon" style="background:rgba(91,141,238,.15);color:var(--blue);">金</div>
-        <div><div style="font-size:13px;font-weight:600;">金融市場常識 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">504 題池</div></div>
-      </div>
+
+      <div class="plan-sub" style="margin-bottom:8px;margin-top:14px;">🔁 錯題複習</div>
       <div onclick="quickStart('全部','wrong',0)" class="quick-card">
         <div class="quick-icon" style="background:rgba(224,85,85,.15);color:var(--red);">錯</div>
         <div><div style="font-size:13px;font-weight:600;">全科錯題衝刺</div><div style="font-size:11px;color:var(--sub);">所有曾錯過的題目</div></div>
@@ -416,7 +437,25 @@ function getTodayIdx() {
   });
 }
 
+function startExamSim(examType) {
+  quizExamMode = examType;
+  if (examType === '實務') {
+    quizModeSelected = '人身保險'; quizModeType = 'random';
+    document.getElementById('quiz-count-sel').value = '50';
+  } else if (examType === '法規') {
+    quizModeSelected = '人身保險'; quizModeType = 'random';
+    document.getElementById('quiz-count-sel').value = '100';
+  } else { // 共同
+    quizModeSelected = '全部'; quizModeType = 'random';
+    // filter to only 金融+職業道德 in startQuiz below
+    document.getElementById('quiz-count-sel').value = '100';
+  }
+  switchTab('quiz');
+  setTimeout(startQuiz, 50);
+}
+
 function quickStart(subject, mode, cnt) {
+  quizExamMode = null;
   quizModeSelected = subject;
   quizModeType = mode === 'wrong' ? 'history' : mode;
   document.getElementById('quiz-count-sel').value = cnt || '0';
@@ -497,7 +536,7 @@ function toggleCard(id) { document.getElementById('card-'+id).classList.toggle('
 
 // Quiz
 let quizModeSelected='全部', quizModeType='random';
-let quizQueue=[], quizIdx=0, quizScore=0, answered=false;
+let quizQueue=[], quizIdx=0, quizScore=0, answered=false, quizExamMode=null;
 
 function selectSubject(m,el) { quizModeSelected=m; document.querySelectorAll('.start-option').forEach(e=>e.classList.remove('sel')); el.classList.add('sel'); }
 function selectMode(m,el) {
@@ -522,9 +561,13 @@ function startQuiz() {
     pool = base.filter(q=>q.num>=from&&q.num<=to);
   } else if (quizModeType==='seq') {
     pool = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
-    pool = [...pool].sort((a,b)=>a.num-b.num); // sequential order
+    pool = [...pool].sort((a,b)=>a.num-b.num);
   } else {
-    pool = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
+    if (quizExamMode==='共同') {
+      pool = QUESTIONS.filter(q=>q.subject==='金融市場常識'||q.subject==='職業道德');
+    } else {
+      pool = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
+    }
   }
   const cnt = parseInt(document.getElementById('quiz-count-sel').value);
   quizQueue = quizModeType==='seq' ? pool.slice(0, cnt||pool.length) : [...pool].sort(()=>Math.random()-.5).slice(0, cnt||pool.length);
@@ -606,13 +649,39 @@ function nextQuestion() {
 function showResult() {
   document.getElementById('quiz-playing').style.display='none';
   document.getElementById('quiz-result').style.display='block';
-  const pct=Math.round(quizScore/quizQueue.length*100);
-  document.getElementById('result-score').textContent=pct+'%';
-  document.getElementById('result-emoji').textContent=pct>=80?'🎉':pct>=60?'💪':'📚';
-  document.getElementById('result-label').textContent=pct>=80?'答對率優秀！':pct>=60?'繼續加油！':'多練幾次就會進步的';
-  document.getElementById('res-correct').textContent=quizScore;
-  document.getElementById('res-wrong').textContent=quizQueue.length-quizScore;
-  document.getElementById('res-total').textContent=quizQueue.length;
+  const total = quizQueue.length;
+
+  let score, passMark, passLabel, emoji, passScore;
+  if (quizExamMode === '實務') {
+    score = quizScore * 2; // 每題2分
+    passMark = 60; passScore = total * 2;
+    passLabel = `${score} / ${passScore} 分（每題2分）`;
+  } else if (quizExamMode === '法規') {
+    score = quizScore; passMark = 60; passScore = total;
+    passLabel = `${score} / ${passScore} 分`;
+  } else if (quizExamMode === '共同') {
+    score = quizScore; passMark = 70; passScore = total;
+    passLabel = `${score} / ${passScore} 分`;
+  } else {
+    score = quizScore; passMark = null; passScore = total;
+    passLabel = `${quizScore} / ${total} 題`;
+  }
+
+  const pct = Math.round(quizScore / total * 100);
+  const pass = passMark !== null ? score >= passMark : null;
+  emoji = pass === true ? '🎉' : pass === false ? '😓' : (pct>=80?'🎉':pct>=60?'👍':'💪');
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-score').textContent = passMark !== null ? `${score}分` : `${pct}%`;
+
+  let labelText = passLabel;
+  if (passMark !== null) {
+    labelText += pass ? ` ✓ 及格（≥${passMark}分）` : ` ✗ 未及格（需≥${passMark}分）`;
+    if (quizExamMode === '法規') labelText += '・注意兩科合計需≥140';
+  }
+  document.getElementById('result-label').textContent = labelText;
+  document.getElementById('res-correct').textContent = quizScore;
+  document.getElementById('res-wrong').textContent = total - quizScore;
+  document.getElementById('res-total').textContent = total;
 }
 
 function showQuizStart() {
