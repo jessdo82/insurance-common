@@ -33,6 +33,9 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
 .day-info h3 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
 .day-info p { font-size: 11px; color: var(--sub); }
 .tip-box { background: rgba(240,180,41,.07); border: 1px solid rgba(240,180,41,.25); border-radius: 10px; padding: 11px 13px; margin-bottom: 14px; }
+.quick-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.quick-card:active { opacity: .75; }
+.quick-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
 .tip-box h4 { color: var(--yellow); font-size: 12px; margin-bottom: 5px; }
 .tip-box p { font-size: 12px; line-height: 1.6; }
 
@@ -150,6 +153,30 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
     <div class="plan-title">備考計劃</div>
     <div class="plan-sub">6/21–6/29，共 9 天</div>
     <div id="day-list"></div>
+
+    <div style="margin-top:18px;">
+      <div class="plan-sub" style="margin-bottom:8px;">⚡ 快速練習（隨時可用）</div>
+      <div onclick="quickStart('人身保險','seq',0)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(240,124,58,.15);color:var(--orange);">順</div>
+        <div><div style="font-size:13px;font-weight:600;">人身保險 順序做完全部</div><div style="font-size:11px;color:var(--sub);">419 題・從第1題開始讀</div></div>
+      </div>
+      <div onclick="quickStart('人身保險','random',100)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(240,124,58,.1);color:var(--orange);">隨</div>
+        <div><div style="font-size:13px;font-weight:600;">人身保險 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">419 題池・隨機抽</div></div>
+      </div>
+      <div onclick="quickStart('職業道德','random',100)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(155,89,224,.15);color:var(--purple);">職</div>
+        <div><div style="font-size:13px;font-weight:600;">職業道德 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">616 題池・選(4)捷徑</div></div>
+      </div>
+      <div onclick="quickStart('金融市場常識','random',100)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(91,141,238,.15);color:var(--blue);">金</div>
+        <div><div style="font-size:13px;font-weight:600;">金融市場常識 隨機 100 題</div><div style="font-size:11px;color:var(--sub);">504 題池</div></div>
+      </div>
+      <div onclick="quickStart('全部','wrong',0)" class="quick-card">
+        <div class="quick-icon" style="background:rgba(224,85,85,.15);color:var(--red);">錯</div>
+        <div><div style="font-size:13px;font-weight:600;">全科錯題衝刺</div><div style="font-size:11px;color:var(--sub);">所有曾錯過的題目</div></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -165,8 +192,9 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
       <div class="start-option" onclick="selectSubject('金融市場常識',this)"><h3>金融市場常識</h3><p>504 題</p></div>
     </div>
     <div style="font-size:12px;color:var(--sub);margin-bottom:7px;">出題方式</div>
-    <div class="mode-row">
+    <div class="mode-row" style="flex-wrap:wrap;gap:6px;">
       <div class="mode-chip sel" id="mode-random" onclick="selectMode('random',this)">隨機出題</div>
+      <div class="mode-chip" id="mode-seq" onclick="selectMode('seq',this)">順序做完</div>
       <div class="mode-chip" id="mode-wrong" onclick="selectMode('wrong',this)">未掌握錯題</div>
       <div class="mode-chip" id="mode-history" onclick="selectMode('history',this)">全部曾錯題</div>
       <div class="mode-chip" id="mode-range" onclick="selectMode('range',this)">指定範圍</div>
@@ -388,6 +416,20 @@ function getTodayIdx() {
   });
 }
 
+function quickStart(subject, mode, cnt) {
+  quizModeSelected = subject;
+  quizModeType = mode === 'wrong' ? 'history' : mode;
+  document.getElementById('quiz-count-sel').value = cnt || '0';
+  // Set visual selection in quiz tab
+  document.querySelectorAll('.start-option').forEach(e=>e.classList.remove('sel'));
+  document.querySelectorAll('.mode-chip').forEach(e=>e.classList.remove('sel'));
+  const modeEl = document.getElementById('mode-'+(mode==='wrong'?'history':mode));
+  if (modeEl) modeEl.classList.add('sel');
+  switchTab('quiz');
+  // small delay to let tab switch render, then start
+  setTimeout(startQuiz, 50);
+}
+
 function renderTips() {
   // Tips panel is static HTML, nothing dynamic needed
 }
@@ -478,11 +520,14 @@ function startQuiz() {
     const from=parseInt(document.getElementById('range-from').value), to=parseInt(document.getElementById('range-to').value);
     const base = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
     pool = base.filter(q=>q.num>=from&&q.num<=to);
+  } else if (quizModeType==='seq') {
+    pool = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
+    pool = [...pool].sort((a,b)=>a.num-b.num); // sequential order
   } else {
     pool = quizModeSelected==='全部'?QUESTIONS:QUESTIONS.filter(q=>q.subject===quizModeSelected);
   }
   const cnt = parseInt(document.getElementById('quiz-count-sel').value);
-  quizQueue = [...pool].sort(()=>Math.random()-.5).slice(0, cnt||pool.length);
+  quizQueue = quizModeType==='seq' ? pool.slice(0, cnt||pool.length) : [...pool].sort(()=>Math.random()-.5).slice(0, cnt||pool.length);
   quizIdx=0; quizScore=0; answered=false;
   document.getElementById('quiz-start-screen').style.display='none';
   document.getElementById('quiz-playing').style.display='block';
