@@ -340,66 +340,97 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
 <div id="tips-panel" style="display:none;">
   <div style="padding:14px;">
     <div class="plan-title">考前提示</div>
-    <div class="plan-sub">7/4 考試日・三科快速攻略</div>
+    <div class="plan-sub">7/4 考試日・三科攻略</div>
 
+    <!-- 萬用猜題流程 -->
+    <div style="background:rgba(224,85,85,.1);border:2px solid var(--red);border-radius:11px;padding:13px;margin-bottom:14px;">
+      <div style="font-size:14px;font-weight:800;color:var(--red);margin-bottom:8px;">🎯 不知道答案時的猜題流程</div>
+      <div style="font-size:13px;line-height:2;">
+        <strong>第1步：先排除</strong><br>
+        &nbsp;看到「以上皆是／皆正確」→ 劃掉（正確率僅 22%）<br>
+        &nbsp;看到「以上皆非／均非」→ 劃掉（正確率僅 15%）<br><br>
+        <strong>第2步：選最短的</strong><br>
+        &nbsp;剩下的選項中，<span style="color:var(--yellow);font-weight:800;">選字數最少的那個</span><br>
+        &nbsp;→ 題庫統計：最短選項是正確答案的機率 <span style="color:var(--yellow);font-weight:800;">80–84%</span><br><br>
+        <strong>第3步（額外加分）</strong><br>
+        &nbsp;如果兩個選項明顯相反（一個說「得」一個說「不得」）<br>
+        &nbsp;→ 答案一定在這兩個之間，再選較短的那個
+      </div>
+    </div>
+
+    <!-- 如何判斷是實務還是法規 -->
+    <div style="background:rgba(91,141,238,.08);border:1px solid var(--blue);border-radius:10px;padding:11px 13px;margin-bottom:14px;font-size:12px;line-height:1.8;">
+      <strong style="color:var(--blue);">📌 怎麼判斷這題是「實務」還是「法規」？</strong><br>
+      <span style="color:var(--orange);">實務題：</span>問商品、費率、核保、壽險種類、業務技巧<br>
+      &nbsp;關鍵字：定期壽險／終身壽險／養老／投資型／傷害／費率<br>
+      <span style="color:var(--purple);">法規題：</span>題目出現「依保險法規定」「依規定」「主管機關」「業務員管理規則」<br>
+      &nbsp;關鍵字：第X條／規定／不得／寬限期／撤銷／解除契約
+    </div>
+
+    <!-- 實務 -->
     <div class="tip-box" style="margin-bottom:12px;">
-      <h4>🕗 08:30–09:50 人身保險實務（80分鐘）</h4>
+      <h4>🕗 08:30–09:50 保險實務（80分鐘）</h4>
       <p><strong>50題×2分=100分・及格≥60分（答對≥30題）</strong><br>
-      注意：兩科合計需≥140才過（法規也需≥60）<br><br>
-      猜題技巧：<br>
-      · <strong>ABCD組合題 → 選字母最多的那個選項</strong>（ＡＢＣＤ＞ＡＢＣ＞ＡＢ）<br>
-      &nbsp;&nbsp;題庫統計：ＡＢＣＤ是正確答案最多（23次），ＡＢＣ次之（20次）<br>
-      · 死亡/生死合/傷害/健康保險 各自特性<br>
-      · 要保人（出錢）、被保險人（出命）、受益人（拿錢）<br>
-      · 儲蓄型（生死合險/養老）vs 保障型（定期壽險）<br>
-      · 投資型保單：保費分帳戶（保障+投資）<br>
-      · 完全不知道的單選題 → 亂猜（選項會打亂，無固定規律）</p>
+      兩科合計需≥140分（法規也需≥60）<br><br>
+      <strong>實務猜題：</strong><br>
+      · ABCD組合題：<span style="color:var(--yellow);">選字母最多的選項</span>（ＡＢＣＤ＞ＡＢＣ＞ＡＢ）<br>
+      · 單選題：最短選項（準確率 80%）<br>
+      · 「以上皆非」在實務題出現→有33%機率對，不確定時可考慮<br><br>
+      <strong>實務必懂概念：</strong><br>
+      · 要保人（付錢）≠ 被保險人（出事賠）≠ 受益人（拿錢）<br>
+      · 定期壽險：到期無還本・終身壽險：活到老保到老<br>
+      · 養老保險（生死合險）：生存到期或死亡都有給付<br>
+      · 投資型保單：保費進分離帳戶，保障＋投資分開<br>
+      · 傷害保險：意外事故才賠・健康保險：疾病也賠</p>
     </div>
 
+    <!-- 法規 -->
     <div class="tip-box" style="margin-bottom:12px;background:rgba(155,89,224,.07);border-color:rgba(155,89,224,.3);">
-      <h4 style="color:var(--purple);">🕙 10:00–11:00 人身保險法規（60分鐘）</h4>
-      <p><strong>100題×1分=100分・及格≥60分</strong><br>
-      兩科合計≥140才過（實務60+法規80=140 ✓）<br><br>
-      猜題技巧：<br>
-      · 受益人變更：要保人通知即可，不需受益人同意<br>
-      · 「不得」類題目 → 多選違規行為<br>
-      · 「依保險法規定」→ 對照下方數字記憶點<br>
-      · 保單借款：要保人申請，上限=保單價值準備金</p>
+      <h4 style="color:var(--purple);">🕙 10:00–11:00 保險法規（60分鐘）</h4>
+      <p><strong>100題×1分=100分・及格≥60分・兩科合計≥140</strong><br><br>
+      <strong>法規猜題（最準）：</strong><br>
+      · 排除「以上皆是」「以上皆非」→ 題庫裡<span style="color:var(--red);">法規題這兩個從沒是答案（0/8題）</span><br>
+      · 排完後選最短選項 → 法規準確率高達 <span style="color:var(--yellow);">84%</span><br><br>
+      <strong>法規題出現「依保險法規定」→ 靠以下數字判斷：</strong></p>
     </div>
 
-    <div style="background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3);border-radius:10px;padding:11px 13px;font-size:12px;line-height:1.9;margin-bottom:12px;">
-      <strong style="color:var(--yellow);font-size:13px;">🔢 10個必背數字（法規高頻）</strong><br>
+    <!-- 10個數字 -->
+    <div style="background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3);border-radius:10px;padding:11px 13px;font-size:12px;line-height:2;margin-bottom:12px;">
+      <strong style="color:var(--yellow);font-size:13px;">🔢 10個必背數字</strong><br>
       <strong>30天</strong> → 保險費寬限期<br>
       <strong>10天</strong> → 保單撤銷期（收到保單次日起算）<br>
-      <strong>2年</strong> → 自殺除外期間 / 停效後申請復效期限 / 詐欺投保解約期限<br>
+      <strong>2年</strong> → 自殺除外 ／ 停效後復效期限 ／ 詐欺投保解約期限<br>
       <strong>15歲</strong> → 未滿15歲不得以死亡為給付條件<br>
       <strong>200%</strong> → 保險業資本適足率標準<br>
-      <strong>1年</strong> → 要保人故意隱匿告知，1年後保險人不得解約<br>
-      <strong>2年</strong> → 保險人知道可解約原因後2年不行使則消滅<br>
-      <strong>3個月</strong> → 保費延遲超過寬限期 → 催告後仍未繳 → 停效<br>
-      <strong>6個月</strong> → 業務員登錄失效後不得招攬期間<br>
-      <strong>1/2</strong> → 受益人故意傷害被保險人 → 喪失受益權
+      <strong>1年</strong> → 故意隱匿告知，1年後保險人不得解約<br>
+      <strong>2年</strong> → 保險人知可解約原因後2年不行使則消滅<br>
+      <strong>3個月</strong> → 超過寬限期仍未繳→催告→停效<br>
+      <strong>6個月</strong> → 業務員登錄失效後不得招攬<br>
+      <strong>½（一半）</strong> → 受益人故意傷害被保險人→喪失受益權
     </div>
 
+    <!-- 共同科目 -->
     <div class="tip-box" style="margin-bottom:12px;background:rgba(76,175,130,.07);border-color:rgba(76,175,130,.3);">
-      <h4 style="color:var(--green);">🕚 11:10–12:10 金融市場+職業道德（60分鐘）</h4>
+      <h4 style="color:var(--green);">🕚 11:10–12:10 共同科目（60分鐘）</h4>
       <p><strong>100題×1分=100分・及格≥70分（最嚴！）</strong><br><br>
       ⭐ 職業道德黃金捷徑：<br>
-      選項(4)含「以上皆是/以上敘述皆正確/以上皆不可為之」<br>
-      → 直接選(4)！佔職業道德28%題目，幾乎全對<br>
-      職業道德42%的答案是(4)，不確定→選(4)<br><br>
+      選項(4)含「以上皆是／皆正確／皆不可為之」→ <span style="color:var(--yellow);">直選(4)！</span><br>
+      職業道德42%的答案是(4)，佔28%題目都有此捷徑<br><br>
       金融市場常識：<br>
-      · 股票/債券/基金/衍生性商品 分類<br>
-      · 金管會管保險、臺灣交易所管股市<br>
+      · 股票／債券／基金／衍生性商品 分類<br>
+      · 金管會管保險・臺灣交易所管股市<br>
       · 貨幣政策：重貼現率↑→貨幣緊縮</p>
     </div>
 
+    <!-- 及格標準 -->
     <div style="background:rgba(224,85,85,.08);border:1px solid rgba(224,85,85,.3);border-radius:10px;padding:11px 13px;font-size:12px;line-height:1.7;">
       <strong style="color:var(--red);">⚠️ 及格標準</strong><br>
-      保險實務 ≥60 AND 保險法規 ≥60 AND 兩科合計 ≥140<br>
-      金融市場+職業道德 ≥70（獨立計算）
+      保險實務 ≥60 AND 保險法規 ≥60 AND <strong>兩科合計≥140</strong><br>
+      金融市場＋職業道德 ≥70（獨立計算）
     </div>
   </div>
+</div>
+
 </div>
 
 <script>
