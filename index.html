@@ -340,111 +340,106 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'P
 <div id="tips-panel" style="display:none;">
   <div style="padding:14px;">
     <div class="plan-title">考前提示</div>
-    <div class="plan-sub">7/4 考試日・三科攻略＋完整猜題技巧</div>
+    <div class="plan-sub">7/4 考試日・完整猜題秘笈</div>
 
-    <!-- ★ 核心猜題大全 -->
-    <div style="background:rgba(224,85,85,.12);border:2px solid var(--red);border-radius:11px;padding:13px;margin-bottom:12px;">
-      <div style="font-size:14px;font-weight:800;color:var(--red);margin-bottom:10px;">🎯 完整猜題技巧（保險實務＋法規適用）</div>
-
-      <div style="font-size:12px;line-height:1.9;">
-
-        <div style="background:rgba(240,180,41,.12);border-radius:8px;padding:9px 11px;margin-bottom:8px;">
-          <strong style="color:var(--yellow);">① 排除法（最優先）</strong><br>
-          看到「以上皆是／皆正確」→ <strong style="color:var(--red);">直接排除</strong>（正確率僅22%）<br>
-          看到「以上皆非／均非」→ <strong style="color:var(--red);">直接排除</strong>（正確率僅15%）<br>
-          <span style="color:var(--orange);">⭐ 法規題更強：這兩種選項在法規題從未是答案（0/8題 = 0%）</span>
-        </div>
-
-        <div style="background:rgba(76,175,130,.1);border-radius:8px;padding:9px 11px;margin-bottom:8px;">
-          <strong style="color:var(--green);">② 選最短的（核心技巧）</strong><br>
-          排除後，剩下的選項裡 → <strong style="color:var(--yellow);">選字數最少的那個</strong><br>
-          · 法規題最短選項正確率：<strong style="color:var(--yellow);">84%</strong><br>
-          · 實務題最短選項正確率：<strong style="color:var(--yellow);">80%</strong><br>
-          原因：正確答案是精準法條（短），錯的選項加很多廢話（長）
-        </div>
-
-        <div style="background:rgba(91,141,238,.1);border-radius:8px;padding:9px 11px;margin-bottom:8px;">
-          <strong style="color:var(--blue);">③ 相反選項（縮小範圍）</strong><br>
-          看到兩個選項明顯相反（一個「得」一個「不得」）<br>
-          → 答案一定在這兩個之間，再選較短的
-        </div>
-
-        <div style="background:rgba(155,89,224,.1);border-radius:8px;padding:9px 11px;margin-bottom:8px;">
-          <strong style="color:var(--purple);">④ ABCD組合題</strong><br>
-          四選項都是字母組合 → <strong style="color:var(--yellow);">選字母最多的那個</strong><br>
-          ＡＢＣＤ（23次）＞ ＡＢＣ（20次）＞ ＡＢ（16次）<br>
-          ⚠️ 選項順序會打亂，看的是內容不是位置
-        </div>
-
-        <div style="background:rgba(240,124,58,.1);border-radius:8px;padding:9px 11px;">
-          <strong style="color:var(--orange);">⑤ 數字型選項（認出數字就猜這個）</strong><br>
-          選項含「幾天／幾日」→ 猜 <strong style="color:var(--yellow);">30日</strong>（30天=寬限期，33%）<br>
-          選項含「幾%」→ 猜 <strong style="color:var(--yellow);">20%</strong>（27%，次高15%）<br>
-          選項含「幾萬元」→ 猜 <strong style="color:var(--yellow);">125萬 或 40萬</strong>（各佔21%）
-        </div>
-
+    <!-- ★ 核心流程 -->
+    <div style="background:rgba(224,85,85,.12);border:2px solid var(--red);border-radius:11px;padding:13px;margin-bottom:10px;">
+      <div style="font-size:14px;font-weight:800;color:var(--red);margin-bottom:8px;">🎯 不知道答案時，照這個順序</div>
+      <div style="font-size:13px;line-height:2.1;">
+        <strong>第1步：排除</strong><br>
+        &nbsp;「以上皆是／皆正確」→ 排除（22%，低於隨機）<br>
+        &nbsp;「以上皆非／均非」→ 排除（15%，最低）<br>
+        &nbsp;<span style="color:var(--orange);">法規題這兩個 <strong>完全沒出現過</strong>（0/8題），直接劃掉</span><br>
+        <strong>第2步：看有沒有特殊選項</strong>（見下方數字秘笈）<br>
+        <strong>第3步：選最短的</strong><br>
+        &nbsp;法規題準確率 <strong style="color:var(--yellow);">84%</strong>・實務題 <strong style="color:var(--yellow);">80%</strong><br>
+        <strong>第4步：相反選項</strong><br>
+        &nbsp;一個「得」一個「不得」→ 答案在這兩個裡，選較短那個
       </div>
     </div>
 
-    <!-- 如何判斷實務/法規 -->
-    <div style="background:rgba(91,141,238,.08);border:1px solid var(--blue);border-radius:10px;padding:11px 13px;margin-bottom:12px;font-size:12px;line-height:1.8;">
-      <strong style="color:var(--blue);">📌 怎麼判斷是「實務」還是「法規」？</strong><br>
-      <span style="color:var(--orange);">實務：</span>問商品種類、費率計算、核保、業務技巧<br>
-      &nbsp;→ 關鍵字：定期壽險／終身／養老／投資型／傷害／費率<br>
-      <span style="color:var(--purple);">法規：</span>題目含「依保險法規定」「主管機關」「業務員管理規則」<br>
-      &nbsp;→ 關鍵字：第X條／規定／不得／寬限期／撤銷／解除契約
+    <!-- ABCD組合 -->
+    <div style="background:rgba(155,89,224,.1);border:1px solid rgba(155,89,224,.4);border-radius:10px;padding:11px 13px;margin-bottom:10px;font-size:12px;line-height:1.9;">
+      <strong style="color:var(--purple);">🔤 ABCD組合題（選項全是字母組合）</strong><br>
+      → 選<strong style="color:var(--yellow);">字母最多</strong>的那個：ＡＢＣＤ＞ＡＢＣ＞ＡＢ<br>
+      題庫統計：ＡＢＣＤ正確23次、ＡＢＣ正確20次（並列最高）<br>
+      ⚠️ 選項位置會打亂，看<u>內容</u>不是位置
+    </div>
+
+    <!-- 數字秘笈 -->
+    <div style="background:rgba(240,124,58,.1);border:1px solid rgba(240,124,58,.4);border-radius:10px;padding:11px 13px;margin-bottom:10px;font-size:12px;line-height:2;">
+      <strong style="color:var(--orange);">🔢 看到數字型選項，認出就猜這個</strong><br>
+
+      <strong>天數題</strong>（選項出現「幾天／幾日」）<br>
+      &nbsp;→ 猜 <strong style="color:var(--yellow);">30日</strong>（寬限期，最高頻考點）<br>
+      &nbsp;→ 沒有30日就猜 <strong style="color:var(--yellow);">15日</strong><br><br>
+
+      <strong>百分比題</strong>（選項出現「幾%」）<br>
+      &nbsp;→ 猜 <strong style="color:var(--yellow);">20%</strong>（11題中最多，出現3次）<br>
+      &nbsp;→ 沒有20%就猜 <strong style="color:var(--yellow);">15%</strong><br><br>
+
+      <strong>萬元題</strong>（選項出現「幾萬元」）<br>
+      &nbsp;→ 選項裡有 <strong style="color:var(--yellow);">125萬</strong> → 就選125萬（出現必對，2/2）<br>
+      &nbsp;→ 選項裡有 <strong style="color:var(--yellow);">40萬</strong> → 就選40萬（出現必對，3/3）<br>
+      &nbsp;→ 都沒有 → 猜金額<strong>最小</strong>的（次佳規律）
+    </div>
+
+    <!-- 關鍵字秘笈 -->
+    <div style="background:rgba(76,175,130,.1);border:1px solid rgba(76,175,130,.4);border-radius:10px;padding:11px 13px;margin-bottom:10px;font-size:12px;line-height:2;">
+      <strong style="color:var(--green);">🗝️ 題目出現這些字，答案幾乎固定</strong><br>
+      <strong>「自殺」</strong>（死亡保險）<br>
+      &nbsp;→ 選「<strong style="color:var(--yellow);">僅返還保單價值準備金</strong>」<br><br>
+      <strong>「受益人故意傷害被保險人」</strong><br>
+      &nbsp;→ 選含「<strong style="color:var(--yellow);">喪失受益權</strong>」的選項<br><br>
+      <strong>「複保險」</strong><br>
+      &nbsp;→ 選 ＡＢＣＤ（題庫唯一一題答案是全選）<br><br>
+      <strong>「業務員違規／不得」</strong><br>
+      &nbsp;→ 選含較多字母的組合（常見ＡＣ或ＡＢＣ）<br><br>
+      <strong>「復效」</strong><br>
+      &nbsp;→ 記住：停效後 <strong style="color:var(--yellow);">2年內</strong>可申請復效
+    </div>
+
+    <!-- 實務/法規辨識 -->
+    <div style="background:rgba(91,141,238,.08);border:1px solid var(--blue);border-radius:10px;padding:10px 13px;margin-bottom:10px;font-size:12px;line-height:1.8;">
+      <strong style="color:var(--blue);">📌 分辨是「實務」還是「法規」</strong><br>
+      <span style="color:var(--orange);">實務：</span>壽險種類／費率／核保／業務技巧<br>
+      <span style="color:var(--purple);">法規：</span>依保險法規定／主管機關／第X條／寬限期／解除
     </div>
 
     <!-- 10個數字 -->
-    <div style="background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3);border-radius:10px;padding:11px 13px;font-size:12px;line-height:2;margin-bottom:12px;">
-      <strong style="color:var(--yellow);font-size:13px;">🔢 10個必背數字（法規高頻）</strong><br>
+    <div style="background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3);border-radius:10px;padding:10px 13px;font-size:12px;line-height:2;margin-bottom:10px;">
+      <strong style="color:var(--yellow);">🔢 10個必背數字</strong><br>
       <strong>30天</strong> → 保險費寬限期<br>
-      <strong>10天</strong> → 保單撤銷期（收到保單次日起算）<br>
-      <strong>2年</strong> → 自殺除外／停效後復效期限／詐欺投保解約期限<br>
+      <strong>10天</strong> → 保單撤銷期（收到保單次日起）<br>
+      <strong>2年</strong> → 自殺除外／停效復效期限／詐欺解約期限<br>
       <strong>15歲</strong> → 未滿15歲不得以死亡為給付條件<br>
-      <strong>200%</strong> → 保險業資本適足率標準<br>
-      <strong>1年</strong> → 故意隱匿告知，1年後保險人不得解約<br>
-      <strong>2年</strong> → 保險人知可解約原因後2年不行使則消滅<br>
-      <strong>3個月</strong> → 超過寬限期仍未繳→催告→停效<br>
+      <strong>200%</strong> → 保險業資本適足率<br>
+      <strong>1年</strong> → 故意隱匿告知，1年後不得解約<br>
+      <strong>3個月</strong> → 逾寬限期未繳→催告→停效<br>
       <strong>6個月</strong> → 業務員登錄失效後不得招攬<br>
-      <strong>½（一半）</strong> → 受益人故意傷害被保險人→喪失受益權
+      <strong>½</strong> → 受益人故意傷害被保人→喪失受益權<br>
+      <strong>受益人變更</strong> → 要保人通知即可，不需受益人同意
     </div>
 
     <!-- 實務 -->
-    <div class="tip-box" style="margin-bottom:12px;">
-      <h4>🕗 08:30–09:50 保險實務（80分鐘）</h4>
-      <p><strong>50題×2分=100分・及格≥60分（答對≥30題）</strong><br>
-      兩科合計需≥140分（法規也需≥60）<br><br>
-      必懂概念：<br>
-      · 要保人（付錢）≠ 被保險人（出事賠）≠ 受益人（拿錢）<br>
-      · 定期壽險：到期無還本・終身：活到老保到老<br>
-      · 養老保險（生死合險）：生存到期或死亡都有給付<br>
-      · 投資型保單：保費進分離帳戶，保障＋投資分開<br>
-      · 傷害保險：意外才賠・健康保險：疾病也賠</p>
-    </div>
-
-    <!-- 法規 -->
-    <div class="tip-box" style="margin-bottom:12px;background:rgba(155,89,224,.07);border-color:rgba(155,89,224,.3);">
-      <h4 style="color:var(--purple);">🕙 10:00–11:00 保險法規（60分鐘）</h4>
-      <p><strong>100題×1分=100分・及格≥60分・兩科合計≥140</strong><br><br>
-      · 受益人變更：要保人通知即可，不需受益人同意<br>
-      · 保單借款：要保人申請，上限=保單價值準備金<br>
-      · 對照上方數字記憶點快速作答</p>
+    <div class="tip-box" style="margin-bottom:10px;">
+      <h4>🕗 08:30 保險實務（50題×2分，及格≥60分）</h4>
+      <p>要保人（付錢）≠ 被保險人（出事）≠ 受益人（拿錢）<br>
+      定期壽險：到期無還本・終身：活到老保到老<br>
+      養老（生死合）：活到或死亡都給付<br>
+      投資型：保費進分離帳戶<br>
+      傷害：意外才賠・健康：疾病也賠</p>
     </div>
 
     <!-- 共同科目 -->
-    <div class="tip-box" style="margin-bottom:12px;background:rgba(76,175,130,.07);border-color:rgba(76,175,130,.3);">
-      <h4 style="color:var(--green);">🕚 11:10–12:10 共同科目（60分鐘）</h4>
-      <p><strong>100題×1分=100分・及格≥70分（最嚴！）</strong><br><br>
-      ⭐ 職業道德：選項(4)含「以上皆是／皆正確／皆不可」<br>
-      → <strong style="color:var(--yellow);">直接選(4)！</strong> 佔28%題目，職業道德42%答案是(4)<br><br>
-      金融市場常識：<br>
-      · 金管會管保險・央行管貨幣・交易所管股市<br>
-      · 貨幣政策：重貼現率↑→貨幣緊縮</p>
+    <div class="tip-box" style="margin-bottom:10px;background:rgba(76,175,130,.07);border-color:rgba(76,175,130,.3);">
+      <h4 style="color:var(--green);">🕚 11:10 共同科目（100題×1分，及格≥70分）</h4>
+      <p>⭐ 職業道德：選項(4)含「以上皆是／皆正確／皆不可」<br>
+      → <strong style="color:var(--yellow);">直選(4)！佔28%題目</strong>，職業道德42%答案是(4)</p>
     </div>
 
     <!-- 及格標準 -->
-    <div style="background:rgba(224,85,85,.08);border:1px solid rgba(224,85,85,.3);border-radius:10px;padding:11px 13px;font-size:12px;line-height:1.7;">
+    <div style="background:rgba(224,85,85,.08);border:1px solid rgba(224,85,85,.3);border-radius:10px;padding:10px 13px;font-size:12px;line-height:1.7;">
       <strong style="color:var(--red);">⚠️ 及格標準</strong><br>
       保險實務 ≥60 AND 保險法規 ≥60 AND <strong>兩科合計≥140</strong><br>
       金融市場＋職業道德 ≥70（獨立計算）
